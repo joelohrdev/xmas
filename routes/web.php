@@ -9,7 +9,9 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::get('dashboard/kid/{kid}', [KidController::class, 'show'])->name('kid.show');
+Route::get('dashboard/kid/{kid}', [KidController::class, 'show'])
+    ->middleware(['auth', 'verified'])
+    ->name('kid.show');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
